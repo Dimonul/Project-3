@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"> -->
+    <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
+
+</head>
+
+<body>
+    <div id="hideMeAfter3Seconds">
+        <div class="loading loading--full-height"></div>
+    </div>
+
+    <header>
+        <div class="container extra-css">
+            <div class="togglebox">
+                <a onclick="showMenu()" href="#"><i class="fa-solid fa-bars"></i><i class="fa-solid fa-x"></i></a>
+            </div>
+            <div class="logo">
+                <a href="#">
+                    <img src="Images/logo.png" alt="fresh&delicios logo">
+                </a>
+            </div>
+            <div class="navbar">
+                <nav class="navigation">
+                    <ul>
+                        <li class="shop"><a href="#">Shop</a>
+                            <div class="submenu">
+                                <ul>
+
+                                </ul>
+                                <a class="readrecipes" href="#"><img src="Images/readrecipes.png"
+                                        alt="Read Recipes"></a>
+                            </div>
+                        </li>
+                        <li><a href="404.html">About us</a></li>
+                        <li><a href="404.html">Contact</a></li>
+                        <li><a class="sale" href="404.html">Sale</a></li>
+                    </ul>
+                </nav>
+
+
+            </div>
+            <div class="shoppingcart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="search">
+                <h2>Fire Up more table time</h2>
+                <h4>Summer is sweet together</h4>
+                <form action="" class="search-bar">
+                    <input type="text" value="Search groceries..." placeholder="Type here" />
+                    <button type="submit"><i class="fa-search fa"></i></button>
+                </form>
+            </div>
+
+
+        </div>
+    </header>
+    <main>
+        <div class="container" id="fruitlist">
+            <h2>Fruits</h2>
+            <div class="selector">
+                <h3>Showing 1 - 12 of 48 products</h3>
+
+                <div class="dropdown">
+                    <h3>Items per page</h3>
+                    <select class="dropdown-content">
+                        <option>4</option>
+                        <option>12</option>
+                        <option>24</option>
+                        <option>36</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul class="fruits list" >
+
+            </ul>
+            <!-- <div class="test">
+            <a href="#" class="fa-solid fa-chevron-left"></a>
+
+            <ul class="pagination"></ul>
+
+            <a href="#" class="fa-solid fa-chevron-right"></a>
+            </div> -->
+            <div class="glider">
+                <h2>Categories</h2>
+
+                <div class="glide">
+
+                    <div class="glide__track" data-glide-el="track">
+
+                        <ul class="glide__slides">
+
+                        </ul>
+                    </div>
+
+                    <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa-solid fa-circle-chevron-left"></i></button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa-solid fa-circle-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <img src="Images/logo.png" alt="fresh&delicios logo">
+                </a>
+            </div>
+            <div class="columns">
+                <div class="Ourcompany">
+                    <h3>Our Company</h3>
+                    <ul>
+                        <li><a href="404.html">About us</a></li>
+                        <li><a href="404.html">Terms and Conditions</a></li>
+                        <li><a href="404.html">Return Request</a></li>
+                        <li><a href="404.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="Sociallink">
+                    <h3>Social Links</h3>
+                    <ul>
+                        <li><a href="404.html">Facebook</a></li>
+                        <li><a href="404.html">Instagram</a></li>
+                        <li><a href="404.html">Google+</a></li>
+                    </ul>
+                </div>
+                <div class="Contact">
+                    <h3>Contact</h3>
+                    <h5>Email: <a href="mailto:contact@fresh-delicious.com">contact@fresh-delicious.com</a><br>
+                        Phone: <a href="tel:257 024 873"> 257 024 873</a><br>
+                        Address:<a href="https://goo.gl/maps/tfGqLizkDS6BUsX37" target="_blank"> Fresh Gardens, Main
+                            building, 2nd Floor</a></h5>
+                </div>
+            </div>
+            <div class="rights">
+                <h5> © 2021 Fresh&Delicious - All Rights Reserved.</h5>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="script.js"></script>
+    <script src="script-listing.js"></script>
+
+
+
+
+</body>
+
+</html>

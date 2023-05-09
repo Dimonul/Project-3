@@ -1,0 +1,527 @@
+.body {
+
+    span{
+        font-family: "Nunito Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 130%;
+        color: #646464;
+    }
+    margin-top: 72px;
+
+    p {
+        color: $link;
+    }
+
+    .homepage {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        a {
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 130%;
+            color: $gray2;
+        }
+    }
+
+    .page {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 130%;
+        width: 100%;
+
+        h4 {
+            color: $linkhover;
+        }
+
+        span {
+            color: $gray2
+        }
+    }
+
+
+    .titleimg {
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-color: $gray2;
+        border-width: 1px;
+
+        img {
+            max-width: 325px;
+        }
+    }
+
+    .title {
+        h2 {
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 26px;
+            display: flex;
+            letter-spacing: 0.01em;
+            color: $link;
+            height: 30px;
+            justify-content: flex-start;
+
+        }
+    }
+    h5 {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 36px;
+        color: $button;
+        display: flex;
+        justify-content: flex-end;
+        &.notinstock{
+            color: red;
+
+        }
+    }
+    .rev {
+        display: flex;
+        align-items: center;
+
+        .review {
+            @include review;
+            height: 16px;
+
+            p {
+                display: flex;
+            }
+        }
+    }
+
+    .discount {
+        display: flex;
+        align-items: center;
+        height: 24px;
+        padding-top: 25px;
+        padding-bottom: 20px;
+        gap: 10px;
+
+        :nth-child(1) {
+            color: $redlight;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 135%;
+            letter-spacing: 0.01em;
+
+        }
+
+        :nth-child(2) {
+            text-decoration: line-through;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 135%;
+            letter-spacing: 0.01em;
+
+        }
+    }
+
+
+    .quantityselector {
+        position: relative;
+        max-width: 150px;
+        width: 100%;
+
+        input {
+            width: 100%;
+            height: 48px;
+            border-style: solid;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 26px;
+            text-align: center;
+            padding-left: 35px;
+            padding-right: 35px;
+
+
+        }
+
+        i {
+            position: absolute;
+            bottom: 19px;
+
+            height: 12px;
+
+            &.fa-minus {
+                left: 10px;
+            }
+
+            &.fa-plus {
+                right: 10px;
+
+            }
+        }
+    }
+
+    .addtocart {
+        button {
+            margin-top: 20px;
+            max-width: 330px;
+        }
+    }
+
+    p {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+    }
+
+    h6 {
+        font-family: 'Public Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        color: $gray2;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .addtocart {
+        button {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: nowrap;
+            align-items: center;
+            border-radius: 0 18px 18px 0;
+            height: 48px;
+            border: 1px solid #E8E8EA;
+            border-left: none;
+            gap: 8px;
+            background: #059E67;
+            border-radius: 12px;
+            border-style: none;
+            color: white;
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 112%;
+            min-width: 285px;
+        }
+    }
+
+    .accordion {
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        ul {
+            list-style-type: circle;
+        }
+
+        .accordion__title {
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 26px;
+            line-height: 36px;
+            letter-spacing: 0.01em;
+            color: $redlight;
+            display: block;
+            cursor: pointer;
+            position: relative;
+            background: $linkhover;
+            padding: 10px;
+
+            &.active {
+                background: white;
+                color: $button;
+
+                &:after {
+                    transform: translateY(-50%) rotate(0.5turn);
+                }
+
+                &+.accordion__content {
+                    display: block;
+
+                    li {
+                        list-style-type: disc;
+                    }
+                }
+            }
+
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 24px;
+                transform: translateY(-50%);
+                width: 15px;
+                height: 21px;
+                background-image: url(Images/caret-down-solid.svg);
+                background-size: 15px;
+                transition: transform 0.4s;
+            }
+        }
+
+        .accordion__content {
+
+            font-family: 'Nunito Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 36px;
+            display: none;
+            align-items: center;
+            letter-spacing: 0.01em;
+            color: #1D1929;
+            padding: 16px 24px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+
+                ::placeholder {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 8px 16px;
+                    gap: 8px;
+                }
+
+                input {
+                    border: 1px solid #E8E8EA;
+                    border-radius: 18px;
+                    font-family: 'Nunito Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 116%;
+                    display: flex;
+                    align-items: center;
+                    color: #A5A3A9;
+                    width: 295px;
+                    height: 56px;
+                    padding: 8px;
+                }
+
+                textarea {
+                    border: 1px solid #E8E8EA;
+                    border-radius: 18px;
+                    font-family: 'Nunito Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 116%;
+                    display: flex;
+                    align-items: center;
+                    color: #A5A3A9;
+                    height: 120px;
+                    padding: 8px;
+                }
+            }
+        }
+
+    }
+
+    @media screen and (min-width: 700px) {
+
+        .container {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .desktop {
+            display: flex;
+            gap: 55px;
+
+            .titleimg,
+            .desktopmode {
+                width: 50%;
+            }
+
+            .oneline {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+
+    
+            }
+
+            .rev {
+                .review {
+                    width: 135px;
+                    height: 24px;
+
+                    .stars {
+                        font-size: 24px;
+
+                        &.full {
+                            max-width: 135px;
+                        }
+                    }
+                }
+            }
+
+            .titleimg {
+                img {
+                    height: auto;
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            h2 {
+                font-family: 'Nunito Sans';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 32px;
+                line-height: 36px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.01em;
+            }
+
+            p {
+                font-family: 'Nunito Sans';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 22px;
+                line-height: 36px;
+            }
+
+        }
+
+
+
+        .highres {
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+
+        .homepage {
+
+
+            a {
+                font-family: 'Nunito Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 130%;
+                color: $gray2;
+
+            }
+        }
+
+        .desktop {
+
+            .discount {
+                :nth-child(1) {
+                    color: $redlight;
+                    font-family: 'Nunito Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 22px;
+                    line-height: 135%;
+                    letter-spacing: 0.01em;
+
+                }
+
+                :nth-child(2) {
+                    text-decoration: line-through;
+                    font-family: 'Nunito Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 135%;
+                    letter-spacing: 0.01em;
+
+                }
+            }
+
+        }
+
+        .accordion {
+            width: 100%;
+            max-width: 100%;
+            box-shadow: none;
+
+
+            //         display: grid;
+            //         grid-template:
+            // [row1-start] "header header header header" auto [row1-end]
+            // [row2-start] "footer footer footer footer" auto [row2-end];
+
+            .accordion__content {
+                display: none;
+                border: 1px solid #646464;
+
+            }
+
+            .accordion__title {
+                float: left;
+                width: auto;
+                border: 1px solid #646464;
+
+                &:after {
+                    display: none;
+                }
+
+                &.active {
+                    &+.accordion__content {
+                        box-sizing: border-box;
+                        float: right;
+                        margin-left: -100%;
+                        width: 100%;
+                        margin-top: 57px;
+
+                        // display: block;
+                        // grid-area: footer;
+                        li {
+                            list-style-type: disc;
+                        }
+                    }
+                }
+            }
+
+            .accordion__content {
+
+                form {
+                    textarea {
+                        max-width: 745px;
+                        width: 100%;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+    footer{
+        h5{
+            display: block;
+        }
+    }
+}
