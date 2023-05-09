@@ -65,14 +65,13 @@
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
+  box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
   text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
   opacity: 1;
   cursor: pointer;
   transition: opacity 150ms ease, border 300ms ease-in-out;
   transform: translateY(-50%);
   line-height: 1;
-  color: #059E67;
-  height: 100%;
 }
 .glide__arrow:focus {
   outline: none;
@@ -81,20 +80,10 @@
   border-color: white;
 }
 .glide__arrow--left {
-  left: -4em;
-}
-@media screen and (max-width: 700px) {
-  .glide__arrow--left {
-    left: 0;
-  }
+  left: 2em;
 }
 .glide__arrow--right {
-  right: -4em;
-}
-@media screen and (max-width: 700px) {
-  .glide__arrow--right {
-    right: 0;
-  }
+  right: 2em;
 }
 .glide__arrow--disabled {
   opacity: 0.33;

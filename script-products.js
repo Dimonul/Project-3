@@ -146,7 +146,6 @@ function productsHtml() {
         if (productFinal.price > productFinal.final_price) {
             document.querySelector('.finalprice').innerHTML = productFinal.final_price;
         }
-
         if (productFinal.short_description === null) {
             document.querySelector('.description p').innerHTML = productFinal.description.substring(0, 250);
 
