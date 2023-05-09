@@ -161,6 +161,7 @@ function productsHtml() {
             document.querySelector(".accordion__title").classList.add("active");
 
         }
+        
         else {
             document.querySelector('.ingrediente li').innerHTML = productFinal.ingredients;
 
