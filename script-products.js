@@ -2,7 +2,6 @@
 
 function getCategories(categoryId) {
     fetch('https://magento-demo.tk/rest/V1/curs/categorii/' + categoryId, { method: 'GET' })
-<<<<<<< HEAD
         .then((response) => response.json())
         .then((result) => {
             sessionStorage.setItem('categorii', JSON.stringify(result));
@@ -12,24 +11,12 @@ function getCategories(categoryId) {
 
 if (!sessionStorage.getItem('categorii')) {  //daca nu exista categorii luate de pe server, se executa getCategories 56
     getCategories(56);
-=======
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('categorii', JSON.stringify(result));
-    })
-
-};
-
-if (!sessionStorage.getItem('categorii')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
-getCategories(56);
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
 }
 
 
 
 function getProducts(categoryId) {
     fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
-<<<<<<< HEAD
         .then((response) => response.json())
         .then((result) => {
             sessionStorage.setItem('products', JSON.stringify(result));
@@ -39,22 +26,11 @@ function getProducts(categoryId) {
 
 if (!sessionStorage.getItem('products')) {  //daca nu exista categorii luate de pe server, se executa getCategories 56
     getProducts(56);
-=======
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('products', JSON.stringify(result));
-
-})};
-
-if (!sessionStorage.getItem('products')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
-getProducts(56);
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
 }
 
 
 function getReviews(categoryId) {
     fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
-<<<<<<< HEAD
         .then((response) => response.json())
         .then((result) => {
             sessionStorage.setItem('products', JSON.stringify(result));
@@ -74,26 +50,7 @@ function categoriesHeader() {
             meniu += '<li><a href="?categoryId=' + categorie.id + '">' + categorie.name + ' </a></li>';
         });
         document.querySelector('li.shop ul').innerHTML = meniu;
-=======
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('products', JSON.stringify(result));
 
-})};
-
-if (!sessionStorage.getItem('products')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
-getProducts(56);
-}
-
-function categoriesHeader (){
-    let meniu='';
-    let categorii=JSON.parse(sessionStorage.getItem('categorii'));  
-    if (categorii){
-        categorii.forEach(function (categorie){
-    meniu += '<li><a href="?categoryId='+categorie.id+'">'+categorie.name+' </a></li>';
-        });
-        document.querySelector('li.shop ul').innerHTML=meniu;
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
     }
 }
 categoriesHeader();
@@ -136,34 +93,18 @@ function showMenu() {
     document.querySelector(".fa-x").classList.toggle("show");
 
 }
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
 
 function productsHtml() {
     let finalPrice = '';
     let saleLabel = '';
     let items = '';
-<<<<<<< HEAD
+
     const ingredientsTitle = document.querySelector('.ingredients');
     let nutritionBenefits = '';
     const nutrition = document.querySelector('.nutrition');
     let healthBenefits = '';
     const healthBen = document.querySelector('.healthbenefits');
-=======
-    let titleimg = '';
-    let title = '';
-    let stock = '';
-    let description = '';
-    let ingredients = '';
-    const ingredientsTitle = document.querySelector('.ingredients');
-    let nutritionBenefits ='';
-    const nutrition = document.querySelector('.nutrition');
-    let healthBenefits ='';
-    const healthBen =document.querySelector('.healthbenefits');
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
+
 
     let products = JSON.parse(sessionStorage.getItem('products'));
 
@@ -199,8 +140,7 @@ function productsHtml() {
             document.querySelector('.finalprice').remove;
             saleLabel = '';
         }
-<<<<<<< HEAD
- 
+
         document.querySelector('.title h2').innerHTML = productFinal.name;
         document.querySelector('.homepage span').innerHTML = productFinal.name;
 
@@ -216,15 +156,15 @@ function productsHtml() {
 
             document.querySelector('.instock h5').innerHTML = 'In Stock'
         }
-        
+
         document.querySelector('.normalprice').innerHTML = productFinal.price;
-        
-        if(productFinal.price>productFinal.final_price){
-        document.querySelector('.finalprice').innerHTML = productFinal.final_price;
+
+        if (productFinal.price > productFinal.final_price) {
+            document.querySelector('.finalprice').innerHTML = productFinal.final_price;
         }
 
         if (productFinal.short_description === null) {
-            document.querySelector('.description p').innerHTML = productFinal.description.substring(0,250) ;
+            document.querySelector('.description p').innerHTML = productFinal.description.substring(0, 250);
 
 
         } else {
@@ -250,7 +190,7 @@ function productsHtml() {
 
         }
         else {
-            document.querySelector('.nutritie').innerHTML =  productFinal.nutritional_information ; /// RTEBUIE SCHIMBAT DUPA CE VAD CE FEL DE DATA IMI VIN DE PE SERVER
+            document.querySelector('.nutritie').innerHTML = productFinal.nutritional_information; /// RTEBUIE SCHIMBAT DUPA CE VAD CE FEL DE DATA IMI VIN DE PE SERVER
 
         }
 
@@ -262,82 +202,49 @@ function productsHtml() {
 
         }
         else {
-            document.querySelector('.beneficii ul').innerHTML =  productFinal.health_benefits ;
-=======
-        title += productFinal.name;
-        titleimg += '<img src="https://magento-demo.tk/media/catalog/product' + productFinal.image + '" alt="' + productFinal.name + '">' + saleLabel + '</a>'
-
-        if (productFinal.stock_status === "0") {
-            stock += '<h5 style="color:red;">Not In Stock</h5>';
-
-        }
-        else {
-            stock += '<h5>In Stock</h5>' +
-                '<div class="discount">' +
-                '<p>' + productFinal.price + '</p>' +
-                '<p>'+ productFinal.final_price + '</p>' +
-                '</div>';
-            
-        }
-        
-        description += '<p>'+ productFinal.description + '</p>';
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
-
-
-        if(productFinal.ingredients === null)
-        {
-            ingredientsTitle.remove();  
-            document.querySelector(".accordion__title").classList.add("active");
-
-                }
-        else{
-        ingredients += '<li>'+ productFinal.ingredients + '</li>';
+            document.querySelector('.beneficii ul').innerHTML = productFinal.health_benefits;
         }
 
 
-        if(productFinal.nutritional_information === null)
-        {
-            nutrition.remove();  
-            document.querySelector(".accordion__title").classList.add("active");
+            if (productFinal.ingredients === null) {
+                ingredientsTitle.remove();
+                document.querySelector(".accordion__title").classList.add("active");
 
-                }
-        else{
-        nutritionBenefits += '<li>'+ productFinal.nutritional_information + '</li>';
-        }
-
-
-        if(productFinal.health_benefits === null)
-        {
-            healthBen.remove();  
-            document.querySelector(".accordion__title").classList.add("active");
+            }
+            else {
+                ingredients += '<li>' + productFinal.ingredients + '</li>';
+            }
 
 
-                }
-        else{
-        healthBenefits += '<ul>'+ productFinal.health_benefits + '</ul>';
-        }
-    });
-<<<<<<< HEAD
- 
-=======
-                document.querySelector('.homepage span').textContent = title;
-                document.querySelector('.titleimg').innerHTML = titleimg;
-                document.querySelector('.title h2').innerHTML = title;
-                document.querySelector('.instock').innerHTML = stock;
-                document.querySelector('.description').innerHTML = description;
-                document.querySelector('.ingrediente').innerHTML = '<ul>' + ingredients + '</ul>';
-                document.querySelector('.nutritie').innerHTML = '<ul>' + nutritionBenefits + '</ul>';
-                document.querySelector('.beneficii').innerHTML = '<ul>' + healthBenefits + '</ul>';
+            if (productFinal.nutritional_information === null) {
+                nutrition.remove();
+                document.querySelector(".accordion__title").classList.add("active");
 
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
+            }
+            else {
+                nutritionBenefits += '<li>' + productFinal.nutritional_information + '</li>';
+            }
 
 
+            if (productFinal.health_benefits === null) {
+                healthBen.remove();
+                document.querySelector(".accordion__title").classList.add("active");
+
+
+            }
+            else {
+                healthBenefits += '<ul>' + productFinal.health_benefits + '</ul>';
+            }
+        });
 }
 
-                const intervalProduse = setInterval(function () {
+
+
+
+const intervalProduse = setInterval(function () {
     if (sessionStorage.getItem('products')) {
-                    productsHtml();
-                clearInterval(intervalProduse);
+        productsHtml();
+        clearInterval(intervalProduse);
 
     }
 }, 200);
@@ -346,7 +253,6 @@ function productsHtml() {
 
 document.querySelector(".accordion__title").classList.add("active");
 document.onclick = function (event) {
-<<<<<<< HEAD
     if (event.target.classList.contains("accordion__title")) {
         if (event.target.classList.contains("active")) {
             event.target.classList.remove("active");
@@ -389,15 +295,4 @@ add.addEventListener("click", function () {
 // de schimbat codul de la produse pentru html
 
 // flex-carduri definit acelasi width la toate @media,   width in %
-=======
-  if (event.target.classList.contains("accordion__title")) {
-    if (event.target.classList.contains("active")) {
-      event.target.classList.remove("active");
-    }
-    else {
-      document.querySelector(".accordion__title.active").classList.remove("active");}
-      event.target.classList.add("active");
 
-  }
-};
->>>>>>> 74d91ca6d77e94baaa3fb81451591c50f7f148fc
