@@ -51,39 +51,46 @@ document.querySelector('.dropdown-content').addEventListener('change', (event) =
 
 
 
-
-
-
-
-
-
-
 function productsHtml() {
     let productTemplate = '';
     let finalPrice = '';
     let saleLabel = '';
-    let items ='';
+    let items = '';
     let products = JSON.parse(sessionStorage.getItem('products'));
 
     let categoryId = window.location.search ? window.location.search.replace('categoryId=', '') : '';  //opertori ternari , daca conditia este adevarata, apelam prima parte, intre semnul intrebarii si :, daca nu e adevarata se va apela ce este dupa :, adica nimic in cazul nostru
 
     if (categoryId) {
-        items = Object.values(products).filter(function(product) {
+        items = Object.values(products).filter(function (product) {
 
-        
-        if (Object.values(product)[0].category_id.includes(categoryId)) {
-            return product;
-        }
-        
+
+            if (Object.values(product)[0].category_id.includes(categoryId)) {
+                return product;
+            }
+
         })
-    console.log(items)
-    
+        console.log(items)
+
     } else {
-         items =products
+        items = products
     }
-    
     items.forEach(function (product) {
         const productFinal = product[Object.keys(product)[0]];
+        console.log(productFinal.entity_id);
+        jQuery.ajax('https://magento-demo.tk/rest/V1/products/'+ productFinal.entity_id +'/reviews', {
+            
+            dataType: "json",
+            success: function (response, status) {
+
+                sessionStorage.setItem('reviews', JSON.stringify(response));
+                console.log("2")
+
+            },
+            error: function (response, textStatus) {
+                console.log("1")
+            }
+        })
+
         if (Number(productFinal.final_price) < Number(productFinal.price)) {
 
             finalPrice = '<p class="finalprice">' + productFinal.final_price + '</p>';
@@ -114,8 +121,8 @@ function productsHtml() {
             '</div>' +
             '</div>';
     });
-
-    document.querySelector('.fruits').innerHTML = productTemplate;
+    jQuery('.fruits').html(productTemplate)
+    // document.querySelector('.fruits').innerHTML = productTemplate;
 
 
 

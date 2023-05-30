@@ -1,10 +1,19 @@
 
 
 function getCategories(categoryId) {
-    fetch('https://magento-demo.tk/rest/V1/curs/categorii/' + categoryId, { method: 'GET' })
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('categorii', JSON.stringify(result));
+//     fetch('https://magento-demo.tk/rest/V1/curs/categorii/' + categoryId, { method: 'GET' })
+//     .then((response) => response.json())
+//     .then((result) =>{
+// sessionStorage.setItem('categorii', JSON.stringify(result));
+//     })
+    jQuery.ajax('https://magento-demo.tk/rest/V1/curs/categorii/'+ categoryId, {
+        dataType:'json',
+        success: function (response,status){
+            sessionStorage.setItem('categorii', JSON.stringify(response));
+        },
+        error:function(response,textStatus){
+            console.log(response)
+        }
     })
 
 };
@@ -16,28 +25,45 @@ getCategories(56);
 
 
 function getProducts(categoryId) {
-    fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('products', JSON.stringify(result));
-
-})};
+//     fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
+//     .then((response) => response.json())
+//     .then((result) =>{
+// sessionStorage.setItem('products', JSON.stringify(result));
+jQuery.ajax('https://magento-demo.tk/rest/V1/curs/produse/'+ categoryId, {
+    dataType:'json',
+    success: function (response,status){
+        sessionStorage.setItem('products', JSON.stringify(response));
+    },
+    error:function(response,textStatus){
+        console.log(response)
+    }
+})
+};
 
 if (!sessionStorage.getItem('products')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
 getProducts(56);
 }
 
 
-function getReviews(categoryId) {
-    fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
-    .then((response) => response.json())
-    .then((result) =>{
-sessionStorage.setItem('products', JSON.stringify(result));
+function getReviews(entity_id) {
+//     fetch('https://magento-demo.tk/rest/V1/curs/produse/' + categoryId, { method: 'GET' })
+//     .then((response) => response.json())
+//     .then((result) =>{
+// sessionStorage.setItem('products', JSON.stringify(result));
+jQuery.ajax('https://magento-demo.tk/rest/V1/products/'+ entity_id +"/reviews", {
+    dataType:'json',
+    success: function (response,status){
+        sessionStorage.setItem('reviews', JSON.stringify(response));
 
-})};
+    },
+    error:function(response,textStatus){
+        console.log(response)
+    }
+})
+};
 
-if (!sessionStorage.getItem('products')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
-getProducts(56);
+if (!sessionStorage.getItem('reviews')){  //daca nu exista categorii luate de pe server, se executa getCategories 56
+getReviews(56);
 }
 
 function categoriesHeader (){
